@@ -1,0 +1,19 @@
+<section>
+  <h2><%= section %></h2>
+
+  <a href="/reservas/nueva" class="btn"> + Crear nueva reserva</a>
+
+  <% if (reservas.length === 0) { %>
+    <p>No hay reservas registradas en este momento.</p>
+  <% } else { %>
+    <ul>
+      <% reservas.forEach(r => { %>
+        <li>
+          <strong><%= r.estudiante %></strong> - <%= r.sala %> (<%= r.fecha %>, <%= r.turno %>)
+          
+          <a href="/reservas/<%= r.id %>">Ver detalle</a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</section>
